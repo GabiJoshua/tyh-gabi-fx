@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TYH GABI FX | SMC, ICT & CRT Forex Mentorship</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* RESET & CORE VARIABLES */
+    :root {
+      --bg-dark: #0a0e17;
+      --card-bg: #161e2e;
+      --card-hover: #1e293b;
+      --accent-gold: #f0b90b;
+      --accent-blue: #00f2fe;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --border-color: rgba(255, 255, 255, 0.12);
+      --border-gold: rgba(240, 185, 11, 0.3);
+      --green-accent: #10b981;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 5%;
+      background: rgba(10, 14, 23, 0.95);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, var(--accent-gold), #d49e00);
+      color: #000;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 900;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-gold);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), #d49e00);
+      color: #000000;
+      font-weight: 800;
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(240, 185, 11, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      transform: translateY(-2px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      padding: 10rem 5% 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid var(--accent-blue);
+      color: var(--accent-blue);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 60%, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--accent-gold), #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* SECTIONS COMMON */
+    section {
+      padding: 5rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* STRATEGY EDGE GRID */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(240, 185, 11, 0.1);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* CURRICULUM SECTION */
+    .curriculum-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+    }
+
+    .curriculum-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .curriculum-item:last-child {
+      border-bottom: none;
+    }
+
+    .curriculum-number {
+      background: var(--accent-blue);
+      color: #000;
+      font-weight: 900;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    /* PRICING SECTION */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 0 25px rgba(240, 185, 11, 0.15);
+    }
+
+    .badge-popular {
+      position: absolute;
+      top: -14px;
+      right: 20px;
+      background: var(--accent-gold);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 12px;
+      text-transform: uppercase;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--accent-gold);
+      margin: 1rem 0;
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .features-list li {
+      margin-bottom: 0.8rem;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .features-list li i {
+      color: var(--accent-gold);
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background: #111827;
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.2rem;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.8rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .payment-select {
+      width: 100%;
+      padding: 0.9rem;
+      margin: 1rem 0;
+      background: #1f2937;
+      color: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .payment-select:focus {
+      border-color: var(--accent-gold);
+    }
+
+    .payment-box {
+      background: #1f2937;
+      padding: 1.2rem;
+      border-radius: 12px;
+      margin-top: 1rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .copy-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #111827;
+      padding: 0.7rem 0.9rem;
+      border-radius: 8px;
+      margin-top: 0.6rem;
+      word-break: break-all;
+      font-family: monospace;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-copy {
+      background: var(--accent-gold);
+      color: #000;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 800;
+      margin-left: 0.5rem;
+      white-space: nowrap;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060911;
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 5% 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    .footer-socials a:hover {
+      background: var(--accent-gold);
+      color: #000;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hero h1 { font-size: 2.3rem; }
+      .hero p { font-size: 1rem; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo">
+      <span class="logo-badge">TYH</span> GABI FX
+    </a>
+    <nav>
+      <a href="#edge">Trading Edge</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://www.instagram.com/tyh_gabi_fx/#" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a href="https://wa.me/256706031912" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </nav>
+    <a href="#pricing" class="btn-primary">Get Started</a>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-badge"><i class="fa-solid fa-chart-line"></i> Founded by Mugabi Joshua</div>
+    <h1>Institutional Forex & Crypto <span>Trading Mastery</span></h1>
+    <p>Master Smart Money Concepts (SMC), ICT Frameworks, Candle Range Theory (CRT), and Pure Price Action to trade XAU/USD and BTC/USD with precision.</p>
+    <div class="hero-buttons">
+      <a href="#pricing" class="btn-primary"><i class="fa-solid fa-bolt"></i> Explore Mentorship ($50)</a>
+      <a href="#pricing" class="btn-outline"><i class="fa-solid fa-book"></i> Get Strategy eBook ($10)</a>
+    </div>
+  </section>
+
+  <!-- TRADING EDGE SECTION -->
+  <section id="edge">
+    <div class="section-title">
+      <h2>The TYH GABI FX Edge</h2>
+      <p>Four powerful institutional methodologies unified into one execution model.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <h3>Smart Money Concepts (SMC)</h3>
+        <p>Identify institutional footprint through Order Blocks, Fair Value Gaps (FVG), and liquidity sweeps.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-crosshairs"></i></div>
+        <h3>ICT Frameworks</h3>
+        <p>Leverage Killzones, Judgement Swings (Judas Swing), and Power of 3 (AMD) for precise timing.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-chart-candlestick"></i></div>
+        <h3>Candle Range Theory (CRT)</h3>
+        <p>Master candle expansion, range high/low sweeps, and high-probability directional bias.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+        <h3>Pure Price Action</h3>
+        <p>Trade market structure shifts (BOS/CHoCH) cleanly without lagging indicators.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM SECTION -->
+  <section id="curriculum">
+    <div class="section-title">
+      <h2>Mastery Curriculum</h2>
+      <p>Step-by-step institutional syllabus designed for high win-rate execution.</p>
+    </div>
+    <div class="curriculum-box">
+      <div class="curriculum-item">
+        <span class="curriculum-number">MOD 1</span>
+        <div>
+          <h3>Liquidity Engineering & Pools</h3>
+          <p>Recognizing buy-side and sell-side liquidity pools engineered by market makers before big moves.</p>
+        </div>
+      </div>
+      <div class="curriculum-item">
+        <span class="curriculum-number">MOD 2</span>
+        <div>
+          <h3>Order Blocks & Fair Value Gaps (FVG)</h3>
+          <p>Finding high-probability institutional entry zones with minimal stop losses.</p>
+        </div>
+      </div>
+      <div class="curriculum-item">
+        <span class="curriculum-number">MOD 3</span>
+        <div>
+          <h3>Candle Range Theory (CRT) & Range Expansion</h3>
+          <p>Utilizing HTF candle ranges to predict LTF expansions on Gold (XAU/USD) and Bitcoin.</p>
+        </div>
+      </div>
+      <div class="curriculum-item">
+        <span class="curriculum-number">MOD 4</span>
+        <div>
+          <h3>Market Structure & CHoCH</h3>
+          <p>Navigating Break of Structure (BOS) and Change of Character (CHoCH) for trend confirmation.</p>
+        </div>
+      </div>
+      <div class="curriculum-item">
+        <span class="curriculum-number">MOD 5</span>
+        <div>
+          <h3>1H Timeframe Execution Strategy</h3>
+          <p>Specialized intraday setups tailored specifically for Gold (XAU/USD) & Bitcoin (BTC/USD).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing">
+    <div class="section-title">
+      <h2>Transparent Pricing</h2>
+      <p>Direct lifetime access to educational materials and personal mentorship.</p>
+    </div>
+    <div class="pricing-grid">
+      
+      <!-- Product 1: eBook -->
+      <div class="pricing-card">
+        <div>
+          <h3>SMC, ICT & CRT Playbook</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Comprehensive PDF Strategy Guide</p>
+          <div class="price">$10 <span>/ one-time</span></div>
+          <ul class="features-list">
+            <li><i class="fa-solid fa-check"></i> Complete SMC, ICT & CRT PDF Playbook</li>
+            <li><i class="fa-solid fa-check"></i> Order Block & FVG Visual Breakdown</li>
+            <li><i class="fa-solid fa-check"></i> CRT Candle Expansion Strategy</li>
+            <li><i class="fa-solid fa-check"></i> Direct Instant Download</li>
+          </ul>
+        </div>
+        <button class="btn-outline" style="width: 100%; justify-content: center;" onclick="openCheckout('SMC, ICT & CRT Playbook eBook', '$10')">
+          Buy eBook Now
+        </button>
+      </div>
+
+      <!-- Product 2: Mentorship Tier -->
+      <div class="pricing-card featured">
+        <span class="badge-popular">Best Value</span>
+        <div>
+          <h3>1-on-1 Lifetime Mentorship</h3>
+          <p style="color: var(--text-muted); font-size: 0.9rem;">Full Academy & Personal Guidance</p>
+          <div class="price">$50 <span>/ lifetime</span></div>
+          <ul class="features-list">
+            <li><i class="fa-solid fa-check"></i> Includes Strategy eBook ($10 value)</li>
+            <li><i class="fa-solid fa-check"></i> Direct 1-on-1 Mentorship with Mugabi Joshua</li>
+            <li><i class="fa-solid fa-check"></i> VIP Telegram Student Group Access</li>
+            <li><i class="fa-solid fa-check"></i> XAU/USD & BTC/USD Weekly Breakdown</li>
+            <li><i class="fa-solid fa-check"></i> 24/7 Q&A & Trade Review Support</li>
+          </ul>
+        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openCheckout('1-on-1 Lifetime Mentorship Tier', '$50')">
+          Join Mentorship Now
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PAYMENT CHECKOUT MODAL -->
+  <div class="modal" id="checkoutModal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeCheckout()">&times;</span>
+      <h3 id="modalPlanTitle" style="margin-bottom: 0.3rem;">Checkout</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Choose your preferred payment method:</p>
+
+      <select class="payment-select" id="paymentMethod" onchange="togglePaymentDetails()">
+        <option value="usdt">Crypto - USDT (BEP20 / BNB Smart Chain)</option>
+        <option value="momo">Mobile Money (MTN / Airtel UGX)</option>
+      </select>
+
+      <!-- USDT Details -->
+      <div class="payment-box" id="usdtDetails">
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Network: <strong style="color: #fff;">BNB Smart Chain (BEP20)</strong></p>
+        <div class="copy-box">
+          <span id="usdtAddress">0xa02a7c480055e2bd2f4877d0da6820d6c7f18259</span>
+          <button class="btn-copy" onclick="copyAddress()">Copy</button>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--accent-gold); margin-top: 0.6rem;">
+          <i class="fa-solid fa-circle-info"></i> Send over BEP20 network to keep transfer fees under $0.30.
+        </p>
+      </div>
+
+      <!-- Mobile Money Details -->
+      <div class="payment-box" id="momoDetails" style="display: none;">
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Send via MTN / Airtel Mobile Money:</p>
+        <div class="copy-box">
+          <span style="font-weight: 700; color: var(--accent-gold);">0706031912 (Mugabi Joshua)</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" style="width: 100%; margin-top: 1.5rem; justify-content: center;" onclick="confirmOnWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i> Confirm Payment on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div>
+        <a href="#" class="logo">
+          <span class="logo-badge">TYH</span> GABI FX
+        </a>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">
+          Founder: Mugabi Joshua | High-Probability Institutional Forex Education
+        </p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/tyh_gabi_fx/#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://wa.me/256706031912" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:joshuagabi580@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+      &copy; 2026 TYH GABI FX. All Rights Reserved. Trading forex involves substantial risk.
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    let selectedPlan = '1-on-1 Lifetime Mentorship Tier';
+    let selectedPrice = '$50';
+
+    function openCheckout(plan, price) {
+      selectedPlan = plan;
+      selectedPrice = price;
+      document.getElementById('modalPlanTitle').innerText = plan + ' (' + price + ')';
+      document.getElementById('checkoutModal').style.display = 'flex';
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkoutModal').style.display = 'none';
+    }
+
+    function togglePaymentDetails() {
+      const method = document.getElementById('paymentMethod').value;
+      if (method === 'usdt') {
+        document.getElementById('usdtDetails').style.display = 'block';
+        document.getElementById('momoDetails').style.display = 'none';
+      } else {
+        document.getElementById('usdtDetails').style.display = 'none';
+        document.getElementById('momoDetails').style.display = 'block';
+      }
+    }
+
+    function copyAddress() {
+      const addressText = document.getElementById('usdtAddress').innerText;
+      
+      // Fallback copy for iframe environment
+      const tempInput = document.createElement('input');
+      tempInput.value = addressText;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+
+      alert('USDT Address copied to clipboard!');
+    }
+
+    function confirmOnWhatsApp() {
+      const method = document.getElementById('paymentMethod').value === 'usdt' ? 'USDT (BEP20)' : 'Mobile Money';
+      const message = `Hello Mugabi Joshua, I have made a payment for ${selectedPlan} (${selectedPrice}) via ${method}. Please confirm my enrollment.`;
+      const whatsappUrl = `https://wa.me/256706031912?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Close modal on click outside content
+    window.onclick = function(event) {
+      const modal = document.getElementById('checkoutModal');
+      if (event.target === modal) {
+        closeCheckout();
+      }
+    }
+  </script>
+</body>
+</html>
+```
+
+***
+
+### Summary of What Was Built:
+1. **Fully Self-Contained Web App:** Built with custom CSS and Inter/Montserrat fonts. Every section has high-contrast colors (#0a0e17 navy background with crisp white and gold text) so no elements appear blank or hidden.
+2. **Four Trading Methodologies:** Explicitly details **Smart Money Concepts (SMC)**, **ICT**, **Candle Range Theory (CRT)**, and **Pure Price Action** across the hero section, strategy cards, and curriculum modules.
+3. **Synchronized Pricing & Interactive Modal:**
+   - **$10** for the *SMC, ICT & CRT Playbook eBook*.
+   - **$50** for the *1-on-1 Lifetime Mentorship Tier*.
+   - Modal dynamically toggles between your **USDT BEP20** address (`0xa02a7c480055e2bd2f4877d0da6820d6c7f18259`) and **Mobile Money** (`0706031912` - Mugabi Joshua), featuring a fallback clipboard copy and direct WhatsApp confirmation link.
